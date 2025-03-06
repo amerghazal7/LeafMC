@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-MANIFEST_FILE=android/AndroidManifest.xml
+# check if SOURCE_DIR variable is set
+if [ -z "$SOURCE_DIR" ]; then
+    MANIFEST_FILE=android/AndroidManifest.xml
+else
+    MANIFEST_FILE=$SOURCE_DIR/android/AndroidManifest.xml
+fi
 
 if [ ! -f $MANIFEST_FILE ]; then
     echo "Error: AndroidManifest.xml not found"
